@@ -127,13 +127,17 @@
                 {
                   "properties": {
                     "opened": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "True if the student has opened the unit."
                     },
                     "completed": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "True if the student has completed the unit."
                     },
                     "timeSpent": {
-                      "type": "integer"
+                      "type": "integer",
+                      "description": "How many seconds the user has spent on the unit.",
+                      "minimum": 0
                     }
                   }
                 }
