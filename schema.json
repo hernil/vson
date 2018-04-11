@@ -1,0 +1,148 @@
+{
+  "$id": "http://ex.com/example.json",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "object",
+  "definitions": {
+    "unit": {
+      "type": "object",
+      "required": ["name", "type", "topic"],
+      "properties": {
+        "name": {
+          "$id": "/properties/name",
+          "type": "string",
+          "description": "Unique human-readable name within the scope of this subject",
+          "examples": ["days_to_week_conversion", "inheritance.animals"]
+        },
+        "type": {
+          "$id": "/properties/type",
+          "type": "string",
+          "description": "Describes what type of unit this is",
+          "examples": ["resource", "task", "exercise"]
+        },
+        "topic": {
+          "$id": "/properties/topic",
+          "type": "string",
+          "description": "Describes what topic this belongs to ",
+          "examples": ["For loops", "Inheritance"]
+        },
+        "difficulty": {
+          "$id": "/properties/difficulty",
+          "type": "number",
+          "description": "The difficulty of the given unit",
+          "default": 0
+        },
+        "opened": {
+          "$id": "/properties/opened",
+          "type": ["boolean", "number"]
+        },
+        "completed": {
+          "$id": "/properties/completed",
+          "type": ["boolean", "number"]
+        },
+        "recommended": {
+          "$id": "/properties/recommended",
+          "type": "boolean",
+          "title": "The Recommended Schema ",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "timeSpent": {
+          "$id": "/properties/time_spent",
+          "type": "integer",
+          "title": "The TimeSpent Schema ",
+          "default": 0,
+          "examples": [
+            3500
+          ]
+        },
+        "performance": {
+          "$id": "/properties/performance",
+          "type": "number",
+          "title": "The Performance Schema ",
+          "default": 0,
+          "examples": [
+            0.699999988079071
+          ]
+        }
+      }
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for a course. For example course code.",
+      "examples": ["TDT4100", "IT3010"]
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the course.",
+      "examples": ["Object-oriented programming", "Web development"]
+    },
+    "units": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "allOf": [
+          {"$ref": "#/definitions/unit"},
+          {
+            "properties": {
+              "opened": {
+                "type": "number",
+                "description": "Avarage student opened rate for this unit. Value between 0 and 1"
+              },
+              "completed": {
+                "type": "number",
+                "description": "Avarage student completion rate for this unit. Value between 0 and 1"
+              },
+              "timeSpent": {
+                "description": "Avarage time spent on this unit. Value in seconds"
+              },
+              "performance": {
+                "type": "number",
+                "description": "Avarage student performance for this unit. Value between 0 and 1"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "students": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "string"},
+          "performance": {
+            "type": "number",
+            "description": "Overall student performance. Values between 0 and 1"
+          },
+          "units": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "allOf": [
+                {"$ref": "#/definitions/unit"},
+                {
+                  "properties": {
+                    "opened": {
+                      "type": "boolean"
+                    },
+                    "completed": {
+                      "type": "boolean"
+                    },
+                    "timeSpent": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

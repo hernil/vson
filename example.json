@@ -1,0 +1,40 @@
+{
+  "course": {
+    "id": "TDT4100",
+    "name": "Object-oriented programming ",
+    "units": 
+    [
+      {
+        "name": "testassignment",
+        "type": "excercise",
+        "topic": "some_topic", 
+        "difficulty": 5,
+        "opened": 0.5,
+        "completed": 0.5,
+        "timeSpent": 3600,
+        "performance": 0.6
+      }
+    ],
+    "students": 
+    [
+      {
+        "id": "sha256",
+        "performance": 0.5,
+        "units": 
+        [
+          {
+            "name": "testresource",
+            "type": "task",
+            "topic": "some_topic",
+            "difficulty": 4,
+            "opened": true,
+            "completed": false,
+            "recommended": false,
+            "timeSpent": 3500,
+            "performance": 0.7
+          }
+        ]
+      }
+    ]
+  }
+}
