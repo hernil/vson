@@ -41,12 +41,7 @@
         },
         "recommended": {
           "$id": "/properties/recommended",
-          "type": "boolean",
-          "title": "The Recommended Schema ",
-          "default": false,
-          "examples": [
-            false
-          ]
+          "type": ["boolean", "number"]
         },
         "timeSpent": {
           "$id": "/properties/time_spent",
@@ -63,7 +58,7 @@
           "title": "The Performance Schema ",
           "default": 0,
           "examples": [
-            0.699999988079071
+            0.6
           ]
         }
       }
@@ -95,6 +90,10 @@
               "completed": {
                 "type": "number",
                 "description": "Avarage student completion rate for this unit. Value between 0 and 1"
+              },
+              "recommended": {
+                "type": "number",
+                "description": "Rate at which this unit has been recommended to students. Value between 0 and1"
               },
               "timeSpent": {
                 "description": "Avarage time spent on this unit. Value in seconds"
@@ -133,6 +132,14 @@
                     "completed": {
                       "type": "boolean",
                       "description": "True if the student has completed the unit."
+                    },
+                    "recommended": {
+                      "type": "boolean",
+                      "description": "True if the unit is recommended to the student.",
+                      "default": false,
+                      "examples": [
+                        false, 0.6
+                      ]
                     },
                     "timeSpent": {
                       "type": "integer",
