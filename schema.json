@@ -101,6 +101,15 @@
               "performance": {
                 "type": "number",
                 "description": "Avarage student performance for this unit. Value between 0 and 1"
+              },
+              "expectedPerformance": {
+                "$id": "/properties/performance",
+                "type": "number",
+                "description": "Defines the units expected performance measure.",
+                "default": 1,
+                "examples": [
+                  0.8
+                ]
               }
             }
           }

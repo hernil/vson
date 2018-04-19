@@ -13,7 +13,8 @@
         "completed": 0.5,
         "recommended": 0.5,
         "timeSpent": 3600,
-        "performance": 0.6
+        "performance": 0.6,
+        "expectedPerformance": 0.85
       }
     ],
     "students": 
